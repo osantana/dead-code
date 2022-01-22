@@ -1,0 +1,74 @@
+#!/usr/bin/env python
+
+from __future__ import with_statement
+
+import os
+import sys
+
+import getopt
+import optparse
+
+def parse_diff_args(cmd_line):
+    args = cmd_line.split()
+    optlist, ret = getopt.gnu_getopt(args[1:], 'iEbwBI:ac:C:u:U:pF:qenyW:D:ltTtNsx:X:S:dv', [
+        'ignore-case', 'ignore-file-name-case', 'no-ignore-file-name-case', 'ignore-tab-expansion',
+        'ignore-space-change', 'ignore-all-space', 'ignore-blank-lines', 'ignore-matching-lines=',
+        'strip-trailing-cr', 'text', 'context=', 'unified=', 'label=', 'show-c-function',
+        'show-function-line=', 'brief', 'ed', 'normal', 'rcs', 'side-by-side', 'width=', 'left-column',
+        'suppress-common-lines', 'ifdef=', 'GTYPE-group-format=', 'line-format=', 'LTYPE-line-format=',
+        'paginate', 'expand-tabs', 'initial-tab', 'recursive', 'new-file', 'unidirectional-new-file',
+        'report-identical-files', 'exclude=', 'exclude-from=', 'starting-file=', 'from-file=',
+        'to-file=', 'horizon-lines=', 'minimal', 'speed-large-files', 'version', 'help',
+    ])
+
+    return ret
+def main():
+
+    usage = "Usage: %prog [options] diff_file"
+    version = "%prog 0.1"
+
+    parser = optparse.OptionParser(usage=usage, version=version)
+    parser.add_option("-p", "--prefix", dest="prefix", help="add PREFIX to output file names", metavar="PREFIX")
+    parser.add_option("-s", "--suffix", dest="suffix", help="add SUFFIX to output file names", metavar="SUFFIX")
+    parser.add_option("-d", "--destdir", dest="destdir", help="write output files in DESTDIR", metavar="DESTDIR")
+    opts, args = parser.parse_args()
+
+
+    if len(args) != 1:
+        parser.error("diff file expected.")
+
+    bigpatch_name = args[0]
+    if not os.path.exists(bigpatch_name):
+        parser.error("%s not found." % (bigpatch_name,))
+    
+    prefix = opts.prefix or (os.path.splitext(bigpatch_name)[0] + "--")
+    suffix = opts.suffix or ".patch"
+    destdir = opts.destdir or "."
+
+    output = None
+    try:
+        with open(bigpatch_name, "r") as bigpatch:
+            for rawline in bigpatch:
+                if rawline.startswith("diff"):
+                    if output:
+                        output.close()
+
+                    output_filename = os.path.join(destdir, prefix + parse_diff_args(rawline.strip())[-1].replace("/", "-") + ".patch")
+                    try:
+                        output = open(output_filename, "w")
+                    except IOError:
+                        print >>sys.stderr, "ERROR: trying to write %s." % (output_filename)
+                        return 3
+
+                if output:
+                    output.write(rawline)
+
+            if output:
+                output.close()
+    except IOError, e:
+        print >>sys.stderr, "ERROR: opening %s." % (bigpatch_name,)
+        return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main())

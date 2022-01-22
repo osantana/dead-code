@@ -1,0 +1,3052 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <title>fisl9.0-2008 - FISL</title><meta name="resource-type" content="document"/>
+  <meta http-equiv="pragma" content="no-cache"/>
+  <meta name="revisit-after" content="1"/>
+  <meta name="classification" content="Internet"/>
+  <meta name="description" content="FISL"/>
+  <meta name="keywords" content="fisl9.0-2008 FISL"/>
+  <meta name="robots" content="ALL"/>
+  <meta name="distribution" content="Global"/>
+  <meta name="rating" content="General"/>
+  <meta name="author" content="FISL"/>
+  <meta name="language" content="pt-br"/>
+  <meta name="doc-class" content="Completed"/>
+  <meta name="doc-rights" content="Public"/>
+  <base href='http://fisl.softwarelivre.org/9.0/papers/pub/'/>
+    <link rel="stylesheet" type="text/css" href="print.css"/>
+</head>
+<body>
+
+<h1>
+FISL<br/>
+Programação
+</h1>
+
+<hr/>
+<h2>Trilhas</h2>
+
+<p>Desmarque/marque as trilhas para escondê-las/exibí-las</p>
+
+<table border="0" width='100%' id='table_legend'>
+<tr>
+<form>
+<td width='25%' >
+<input type='checkbox' name='track17' checked onclick='javascript: toggle(this, 17, "div")'>
+Negócios (Produtos/Servicos)
+</td>
+<td width='25%' >
+<input type='checkbox' name='track18' checked onclick='javascript: toggle(this, 18, "div")'>
+Tópicos Emergentes
+</td>
+<td width='25%' >
+<input type='checkbox' name='track7' checked onclick='javascript: toggle(this, 7, "div")'>
+Desenvolvimento: PHP
+</td>
+<td width='25%' >
+<input type='checkbox' name='track8' checked onclick='javascript: toggle(this, 8, "div")'>
+Desenvolvimento: Python
+</td>
+</tr><tr>
+<td width='25%' >
+<input type='checkbox' name='track9' checked onclick='javascript: toggle(this, 9, "div")'>
+Desenvolvimento: Ruby
+</td>
+<td width='25%' >
+<input type='checkbox' name='track13' checked onclick='javascript: toggle(this, 13, "div")'>
+Governo e Software Público
+</td>
+<td width='25%' >
+<input type='checkbox' name='track14' checked onclick='javascript: toggle(this, 14, "div")'>
+Hardware e Sistemas Embarcados
+</td>
+<td width='25%' >
+<input type='checkbox' name='track16' checked onclick='javascript: toggle(this, 16, "div")'>
+Kernel
+</td>
+</tr><tr>
+<td width='25%' >
+<input type='checkbox' name='track1' checked onclick='javascript: toggle(this, 1, "div")'>
+Admin
+</td>
+<td width='25%' >
+<input type='checkbox' name='track11' checked onclick='javascript: toggle(this, 11, "div")'>
+Ecossistema do Software Livre
+</td>
+<td width='25%' >
+<input type='checkbox' name='track12' checked onclick='javascript: toggle(this, 12, "div")'>
+Educação e Inclusão Digital
+</td>
+<td width='25%' >
+<input type='checkbox' name='track4' checked onclick='javascript: toggle(this, 4, "div")'>
+Desenvolvimento: Ferramenta/Metodologia
+</td>
+</tr><tr>
+<td width='25%' >
+<input type='checkbox' name='track5' checked onclick='javascript: toggle(this, 5, "div")'>
+Desenvolvimento: Java
+</td>
+<td width='25%' >
+<input type='checkbox' name='track6' checked onclick='javascript: toggle(this, 6, "div")'>
+Desenvolvimento: Perl
+</td>
+<td width='25%' >
+<input type='checkbox' name='track15' checked onclick='javascript: toggle(this, 15, "div")'>
+Jogos e Multimídia
+</td>
+<td width='25%' >
+<input type='checkbox' name='track10' checked onclick='javascript: toggle(this, 10, "div")'>
+Desktop
+</td>
+</tr><tr>
+<td width='25%' >
+<input type='checkbox' name='track2' checked onclick='javascript: toggle(this, 2, "div")'>
+Casos/Soluções
+</td>
+<td width='25%' >
+<input type='checkbox' name='track3' checked onclick='javascript: toggle(this, 3, "div")'>
+Desenvolvimento: Banco de Dados
+</td>
+<td width='25%' >
+<input type='checkbox' name='track20' checked onclick='javascript: toggle(this, 20, "div")'>
+Eventos Comunitários
+</td>
+<td width='25%' >
+<input type='checkbox' name='track33' checked onclick='javascript: toggle(this, 33, "div")'>
+Javali
+</td>
+</tr><tr>
+<td width='25%' >
+<input type='checkbox' name='track34' checked onclick='javascript: toggle(this, 34, "div")'>
+APyB
+</td>
+<td width='25%' >
+<input type='checkbox' name='track35' checked onclick='javascript: toggle(this, 35, "div")'>
+Fórum KDE
+</td>
+<td width='25%' >
+<input type='checkbox' name='track36' checked onclick='javascript: toggle(this, 36, "div")'>
+Organização
+</td>
+<td width='25%' >
+<input type='checkbox' name='track37' checked onclick='javascript: toggle(this, 37, "div")'>
+WSL
+</td>
+</tr><tr>
+<td width='25%' >
+<input type='checkbox' name='track46' checked onclick='javascript: toggle(this, 46, "div")'>
+Hora Ginga
+</td>
+</form>
+</tr>
+</table>
+<hr/>
+
+<script language='javascript'>
+
+var show = {
+  'tech' : true,
+  'non_tech' : true
+};
+
+function toggleByTag(element, tagname, show) {
+  if (tagname == 'div') {
+    element.style.display = show?'block':'none';
+    return;
+  }
+  if (tagname == 'td') {
+    element.style.visibility = show?'visible':'hidden';
+    return;
+  }
+}
+
+function toggle(checkbox, cod, tagname) {
+  var elements = document.getElementsByTagName(tagname);
+  for (var i = 0; i < elements.length; i++) {
+    var cell = elements.item(i);
+    if (cell.className == 'tech_track_' + cod ) {
+      toggleByTag(cell, tagname, checkbox.checked && show['tech']);
+    }
+    if (cell.className == 'non_tech_track_' + cod ) {
+      toggleByTag(cell, tagname, checkbox.checked && show['non_tech']);
+    }
+  }
+}
+
+function toggle_tech(checkbox, type, tagname) {
+  show[type] = checkbox.checked;
+  track_boxes = document.getElementById('table_legend').getElementsByTagName('input');
+  for (var i = 0; i < track_boxes.length; i++) {
+    box = track_boxes[i];
+    if (box.type == 'checkbox') {
+      cod = box.name.replace(/^track/, '');
+      toggle(box, cod, tagname);
+    }
+  }
+}
+
+</script>
+
+
+<h2>Exibir palestras técnicas/não-técnicas</h2>
+
+<ul>
+  <div>
+    <input type='checkbox' name='show_tech' checked onclick='javascript: toggle_tech(this, "tech", "div")'/> Exibir palestras técnicas
+  </div>
+  <div>
+    <input type='checkbox' name='show_tech' checked onclick='javascript: toggle_tech(this, "non_tech", "div")'/> Exibir palestras não-técnicas
+  </div>
+</ul>
+
+<hr/>
+<p>
+Salas, dias e horários estão sujeitos a alterações, de acordo com os critérios
+da organização do <em>FISL</em>.
+</p>
+
+  <a name="dia1"></a>
+  <h2>17 de Abril</h2>
+      <h3>09:00/10:00</h3>
+                                                                                                                                                                                                                                                                                                                                                                                            <h3>10:00/11:00</h3>
+                                              	  <div class='tech_track_17'>
+          <strong><em>Can you survive a downtime ?</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Tirthankar Das
+                              <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Negócios (Produtos/Servicos)
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>III Encontro Comunitário do Projeto Fedora Brasil</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Rodrigo Padula de Oliveira
+                      <br/> David M. Barzilay
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Encontro da Comunidade Asterisk Brasil - Onde estamos e para onde vamos?</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Alexandre de Barros Barreto
+                              <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Encontro Jabber-BR</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Thadeu Lima de Souza Cascardo
+                                <br/> Leonardo Serra (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Open Source Biotechnology</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Mauricio Bauermann Guaragna
+                      <br/> Joseph Porter Jackson III
+                                <br/> Ricardo Soares Guimarães (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Reunión de Plone Cono Sur</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Roberto Allende
+                      <br/> Emanuel Sartor
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>La difusión del Software Libre en los países latinoamericanos. El caso de Solar en Argentina.</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Verónica Xhardez
+                      <br/> José Luis di Biase
+                              <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Encontro dos pontos de Cultura: Desafios do Trabalho em Redes</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Felipe Santos
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                    <h3>11:00/12:00</h3>
+                                              	  <div class='non_tech_track_11'>
+          <strong><em>The strategic importance of understanding Free Software licences</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Shane Coughlan
+                                <br/> Daniel Gugelmin (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>III Encontro Comunitário do Projeto Fedora Brasil</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Rodrigo Padula de Oliveira
+                      <br/> David M. Barzilay
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_35'>
+          <strong><em>KDE 4 - Evolução</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Helio Chissini
+                                <br/> Bruno Rafael Cardoso (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Fórum KDE
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_33'>
+          <strong><em>Eclipse: Fundamentos e Aplicações de um Sofisticado Framework Open Source</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Bruno Lichot
+                              <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Javali
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>Uma Solução de Firewall Redundante com OpenBSD, CARP e PFSync</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> João Salvatti
+                                <br/> Alexandro Silva (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_2'>
+          <strong><em>HA em PostgreSQL: O Elefante disponível para além do infinito HA em PostgreSQL: O Elefante disponível para além do infinito</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Fernando Ike de Oliveira
+                                <br/> Ricardo Soares Guimarães (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Casos/Soluções
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_9'>
+          <strong><em>Deployment de Rails - os desafios de colocar aplicações em produção</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Fabio Akita
+                      <br/> Luiz Vitor Martinez Cardoso
+                                <br/> Leonardo Torres (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ruby
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_37'>
+          <strong><em>Pesquisa e Desenvolvimento: Migração de Software com Foco no Usuário ** Mural Digital para Reaproveitamento de Computadores Obsoletos ** UAI! Interface0 ** ELSA: Coleta de Dados</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Ramon Abilio (UFLA)
+                      <br/> Emerson Hernandez (UFRGS)
+                      <br/> Rafael Machado de Lima Silva
+                      <br/> Vinícius Cogo (UFSM)
+                                <br/> Patrícia Fisch (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  WSL
+          <br/>
+          <br/>
+	  </div>
+                    <h3>12:00/13:00</h3>
+                                              	  <div class='tech_track_3'>
+          <strong><em>Safe Data Is Happy Data:  Using SQL tools to secure your database application.</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Josh Berkus
+                                <br/> Euler Taveira de Oliveira (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Banco de Dados
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em>Acessibilidade no Kelix: possibilitando a inclusão digital de pessoas com déficit de visão</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Amilton Martins
+                      <br/> Adriano Canabarro Teixeira
+                      <br/> Débora Mack Moro
+                                <br/> Sabine Cassol (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_15'>
+          <strong><em>Bits, atomos, linguagens e sistemas: Um substrato de conhecimentos para ampliacao social do uso do software-livre?</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Etienne Delacroix
+                      <br/> Danilo Di Rosa
+                      <br/> Farid Abdelnour
+                      <br/> Ines Bouvier
+                              <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Jogos e Multimídia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>Access Policy Delegation: transformando o Postfix no melhor MTA do planeta</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Miguel Di Ciurcio Filho
+                                <br/> Tiago Giovanaz da Silva (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_16'>
+          <strong><em>Avaliando os efeitos de memória cache comprimida nos sistemas embarcados</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Anderson F. Briglia
+                                <br/> Ricardo Soares Guimarães (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Kernel
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_1'>
+          <strong><em>Um passo além do VoIP: OpenSICAST - Sistema de Gerenciamente de Contact Center para Asterisk</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Fabrício Raupp Tamusiunas
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>Sapos Piramidais, episódio XII: \"Pontes\" de PI. Para onde?</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Pedro A D Rezende
+                                <br/> Fernanda Alves Chaves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_37'>
+          <strong><em>Processamento Paralelo e Distribuído: Grades computacionais para processamento de alto desempenho ** Pthreads e GOMP para criação de threads com o compilador GCC ** Algoritmos Genéticos e Quadtrees</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> André Gradvohl (Universidade São Francisco)
+                      <br/> Bruno de Oliveira Abinader (INdT)
+                      <br/> Frederico da Silva (UCPEL)
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  WSL
+          <br/>
+          <br/>
+	  </div>
+                    <h3>13:00/14:00</h3>
+                                              	  <div class='tech_track_10'>
+          <strong><em>Look Mom! A Consumer friendly Runtime</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Raghavan N. Srinivas
+                              <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Desktop
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_15'>
+          <strong><em>Animação com MUAN</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Marcos Magalhães
+                                <br/> Alan Menk (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Jogos e Multimídia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>The 7 Dwarves: Debugging Information Beyond gdb</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Arnaldo Carvalho de Melo
+                                <br/> Ricardo Soares Guimarães (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_5'>
+          <strong><em>JBoss Drools: Mudando as Regras do Jogo</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Fernando Meyer
+                              <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Java
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>ISO 27001 unicamente com ferramentas livres é possível?</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Alberto J. Azevedo
+                                <br/> Alexandro Silva (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>Profissionalismo para nerds - Eu já sei o que eu vou ser quando crescer</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Sulamita Garcia
+                                <br/> Flávio Alves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_13'>
+          <strong><em>Software livre no governo do Paraná- uma decisão política</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Cláudio Dutra
+                      <br/> Fabino Mormul
+                                <br/> Marcos Vinícius Henke Arnoldo (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Governo e Software Público
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_37'>
+          <strong><em>Software Livre no Ensino: Aplicação para Matemática Fundamental ** Jogo do Piano: educação musical</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Mírian Bruckschen (UNISINOS)
+                      <br/> Nathalia Patrício (USP)
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  WSL
+          <br/>
+          <br/>
+	  </div>
+                    <h3>14:00/15:00</h3>
+                                              	  <div class='tech_track_3'>
+          <strong><em>The Postgres Application Server</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> David Fetter
+                                <br/> Euler Taveira de Oliveira (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Banco de Dados
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>Creación colaborativa de Empresas - Cooperativismo y Software Libre</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Leandro Monk
+                                <br/> David Emmerich Jourdain (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_5'>
+          <strong><em>GlassFish and a Preview of the Next Version of Enterprise Java, Java EE 6</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Ken Drachnik
+                              <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Java
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>Slack - configuration management system for lazy sysadmins</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Gustavo Franco
+                      <br/> Pereira Braga
+                                <br/> Miguel Di Ciurcio Filho (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_16'>
+          <strong><em>Understanding the Kernel Network Layer</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Breno Leitão
+                                <br/> Alexandre de Barros Barreto (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Kernel
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_14'>
+          <strong><em>Mono para dispositivos embarcados</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Rodrigo Kumpera
+                                <br/> Flávio Alves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Hardware e Sistemas Embarcados
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>Software Livre, Economia Solidária e Desenvolvimento</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Everton Rodrigues
+                      <br/> Dione Manetti
+                                <br/> Fernando Meira da Rocha (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_37'>
+          <strong><em>Software Livre no Ensino: Customização do Moodle ** O Uso de Software Livre Educacional com crianças portadoras de Síndrome de Down</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Marcelo Fernandes (DCC/UFLA)
+                      <br/> Marília Amaral (FFALM)
+                                <br/> Sabine Cassol (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  WSL
+          <br/>
+          <br/>
+	  </div>
+                    <h3>15:00/16:00</h3>
+                                              	  <div class='non_tech_track_11'>
+          <strong><em>Seeing Through the Silicon Mask: Distributed Collaboration</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Ken Coar
+                                <br/> Daniel Gugelmin (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em>V Debate Inclusão Digital e Software Livre</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Cristina Kiomi Mori
+                                <br/> Sueli Elias de Mello (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_46'>
+          <strong><em>Introdução a TV Digital Interativa</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Marcelo Ferreira Moreno
+                                <br/> Alan Menk (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Hora Ginga
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_10'>
+          <strong><em>Bringing OLPC to the Linux Desktop</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Scott Ananian
+                                <br/> Paulo Trezentos (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Desktop
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_13'>
+          <strong><em>III Encontro (Inter)Nacional da Comunidade CACIC</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Adriano Vieira
+                      <br/> Anderson Peterle
+                      <br/> Corinto Meffe
+                              <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Governo e Software Público
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>Uma nova Lei Autoral para o Brasil: equilíbrio entre proteção e acesso a conhecimento</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Pedro Paranaguá
+                      <br/> Luiz Moncau
+                      <br/> Marcos Alves de Souza
+                      <br/> Sergio Vieira Branco Junior
+                                <br/> Patrícia Fisch (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_13'>
+          <strong><em> Hospub  Sistema de Informações Hospitalares: A (Re) Construção de uma Solução Livre para a Gestão Hospitalar</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Cláudio Lage
+                                <br/> Ricardo Soares Guimarães (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Governo e Software Público
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_17'>
+          <strong><em>Meios de pagamento na internet</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Dennis Ferreira
+                                <br/> Fernanda Alves Chaves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Negócios (Produtos/Servicos)
+          <br/>
+          <br/>
+	  </div>
+                    <h3>16:00/17:00</h3>
+                                              	  <div class='non_tech_track_36'>
+          <strong><em>Abertura</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Organização fisl9.0
+                              <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Organização
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_36'>
+          <strong><em>TV Software Livre - Transmissão da Abertura</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Organização fisl9.0
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Organização
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_36'>
+          <strong><em>TV Software Livre - Transmissão da Abertura</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Organização fisl9.0
+                              <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Organização
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_36'>
+          <strong><em>TV Software Livre - Transmissão da Abertura</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Organização fisl9.0
+                              <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Organização
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_36'>
+          <strong><em>TV Software Livre - Transmissão da Abertura</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Organização fisl9.0
+                              <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Organização
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_36'>
+          <strong><em>TV Software Livre - Transmissão da Abertura</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Organização fisl9.0
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Organização
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_36'>
+          <strong><em>TV Software Livre - Transmissão da Abertura</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Organização fisl9.0
+                              <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Organização
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_36'>
+          <strong><em>TV Software Livre - Transmissão da Abertura</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Organização fisl9.0
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Organização
+          <br/>
+          <br/>
+	  </div>
+                    <h3>17:00/18:00</h3>
+                                              	  <div class='non_tech_track_36'>
+          <strong><em>Abertura</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Organização fisl9.0
+                              <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Organização
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>Rede Colaborativa de Software Livre e Aberto - América Latina e Caribe</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Wagner Meira Jr.
+                      <br/> Corinto Meffe
+                      <br/> Fausto Alvim
+                                <br/> Carlos Rodrigues (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_10'>
+          <strong><em>Filesystems: você realmente sabe instalar o GNU/Linux?</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> João Eriberto Mota Filho
+                                <br/> Alessandro SIlva (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Desktop
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_33'>
+          <strong><em>Desenvolvimento de Rich Internet Applications de alto desempenho para a Web 2.0 com o Google Web Toolkit e Grizzly Comet</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Alexandre Gomes
+                      <br/> Jean-François Arcand
+                                <br/> Flávio Alves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Javali
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>Network Forensic -  Coleta e Análise de Evidências dos Ativos da Rede com Ferramentas Livres</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Sandro  Melo
+                                <br/> Marcos Henrique Esteves Barbosa (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>Software Multiplataforma com WxWidgets e C++</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Ivo Nascimento
+                                <br/> Ariane Paola (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_2'>
+          <strong><em>Port do Dicas-l para Drupal</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Fabiano Sant\'Ana
+                      <br/> José Ernesto Mortara San Martin
+                      <br/> Rubens Queiroz de Almeida
+                                <br/> Tiago da Cruz Bezerra (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Casos/Soluções
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_14'>
+          <strong><em>Tecnologias Intel: hoje e no futuro próximo</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Fidel Rios
+                                <br/> Frederico Schardong (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Hardware e Sistemas Embarcados
+          <br/>
+          <br/>
+	  </div>
+                    <h3>18:00/19:00</h3>
+                                              	  <div class='non_tech_track_18'>
+          <strong><em>Futuros Digitais</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Mangabeira Unger
+                      <br/> Claudio Prado
+                      <br/> Ronaldo Lemos
+                                <br/> Heloisa Buarque (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_18'>
+          <strong><em>Migrando aplicações .NET para plataformas livres com Mono</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Everaldo Canuto
+                                <br/> Felipe Vargas Rigo (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_33'>
+          <strong><em>Memory Leaks in Java Applications - Different Tools for Different Types of Leaks</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Gregg Sporar
+                              <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Javali
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_10'>
+          <strong><em>Multiterminais</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Paulo Ricardo Zanoni
+                      <br/> Luis Carlos Erpen de Bona
+                              <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Desktop
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_13'>
+          <strong><em> Política de Software em CT para 2007/2010</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Augusto Cesar Gadelha Vieira
+                              <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Governo e Software Público
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>Artistas e Programadores: Como Interfaces de Usuarios Impactam o Movimento de Software Livre</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Bruno Souza
+                      <br/> Ean Schuessler
+                      <br/> Eric Schuessler
+                      <br/> Roger Brinkley
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_34'>
+          <strong><em>Desenvolvimento de software para o OLPC-XO: experiências e desafios | Internacionalização com GNU getttext em Python</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Alexandre Antonino Gonçalves Martinazzo
+                      <br/> Leandro Coletto Biazon
+                      <br/> Paulo Henrique Junqueira Amorim
+                              <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  APyB
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_2'>
+          <strong><em>Software Livre em Ambiente de Alta Criticidade com Alta Disponibilidade</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Jair SIlva
+                                <br/> Ricardo Soares Guimarães (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Casos/Soluções
+          <br/>
+          <br/>
+	  </div>
+                    <h3>19:00/20:00</h3>
+                                              	  <div class='non_tech_track_18'>
+          <strong><em>Futuros Digitais</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Mangabeira Unger
+                      <br/> Claudio Prado
+                      <br/> Ronaldo Lemos
+                                <br/> Heloisa Buarque (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em>A contribuição do Software Livre para a inclusão digital e a experiência do projeto mente aberta</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Roberto Parente
+                                <br/> Fernando Meira da Rocha (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>Enabling Real-Time Rich Internet Applications with Apache Derby and Comet</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Francois Orsini
+                      <br/> Jean Francois Arcand
+                              <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_5'>
+          <strong><em>JBoss 5 - As novidades da versão penta para a Comunidade Livre!</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Edgar Silva
+                                <br/> Arthur Cesar Oreana (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Java
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_6'>
+          <strong><em>Text::Statistics</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Rodrigo Panchiniak Fernandes
+                              <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Perl
+          <br/>
+          <br/>
+	  </div>
+                                                                                                    	  <div class='non_tech_track_11'>
+          <strong><em>Mercado Público Virtual: a liberdade no mundo dos negócios</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Corinto Meffe
+                                <br/> Carlos Rodrigues (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_18'>
+          <strong><em>DNSSEC e o .br</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Frederico A C Neves
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                    <h3>20:00/21:00</h3>
+                                              	  <div class='tech_track_16'>
+          <strong><em>How to write a device driver</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Kristen Accardi
+                                <br/> Frederico Schardong (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Kernel
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em>Provendo material acessível para cegos: um desafio para educação a distância</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Paloma Costa
+                                <br/> Sabine Cassol (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>Tutorial sobre Qt4</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Alexandre Albuquerque Arnt
+                                <br/> Frederico Schardong (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em> A política de Software Livre do SERPRO</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Marcos Mazoni
+                                <br/> Alberto J. Azevedo (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>Sistemas de arquivos distribuídos e replicados em rede com alta disponibilidade em ambiente Open Source.</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Darlan Segalin
+                                <br/> Leonardo Rodrigues de Mello (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_3'>
+          <strong><em>Fazendo Um Elefante Passar Debaixo da Porta</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Fabio telles
+                                <br/> Euler Taveira de Oliveira (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Banco de Dados
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_15'>
+          <strong><em>Processing  -  Um breve panorama</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Luiz Ernesto Merkle
+                                <br/> Patrícia Fisch (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Jogos e Multimídia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_34'>
+          <strong><em>Portais Corporativos em Plone 3 | Plone Revolutions (Plone 3)</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Fabio Rizzo Matos
+                      <br/> Rodrigo de Lima Castardo
+                                <br/> Fernanda Alves Chaves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  APyB
+          <br/>
+          <br/>
+	  </div>
+                  <a name="dia2"></a>
+  <h2>18 de Abril</h2>
+      <h3>09:00/10:00</h3>
+                                              	  <div class='tech_track_18'>
+          <strong><em>Asynchronous Ajax for Revolutionary Web Applications</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Jean Francois Arcand
+                      <br/> Ted Goddard
+                              <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Encontro Sul-americano de Perl - YAPC::SA::2008</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Flávio S. Glock
+                      <br/> Eden Cardoso Cardim
+                      <br/> Wallace Vinícius Oliveira Reis
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Encontro Comunidade Moodle Brasil</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Mario Teza
+                      <br/> Edson Castilhos
+                                <br/> Marcelo Akira (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>[SNORT-BR] Snort como Intrusion Prevention Systems (IPS)</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Rodrigo Montoro (Sp0oKeR)
+                                <br/> Cleber Souza Brandão (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Encontro BrOffice.org</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Gustavo Pacheco
+                      <br/> César Melchior
+                      <br/> Felipe Augusto van de Wiel
+                                <br/> Gustavo Pacheco (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Software Livre na Educação Universitária : Os estudantes de computação e o software livre</em></strong>
+          <br/> Nível: <em></em>
+          <br/> José Honorato Ferreira Nunes
+                      <br/> Adilson Barros Soares
+                      <br/> Renata de Andrade Pereira
+                                <br/> Paulo Henrique de Lima Santana (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Encontro de Integração e Articulação do GNOME Brasil</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Lucas Rocha
+                      <br/> Izabel Valverde
+                      <br/> Jonh Wendell
+                      <br/> Tiago \"T-Rex\" Menezes
+                                <br/> Luciana Freitas (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Encontro do Grupo de Usuários Pentaho Brasil</em></strong>
+          <br/> Nível: <em></em>
+          <br/> FABRIZIO MARODIN
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                    <h3>10:00/11:00</h3>
+                                              	  <div class='tech_track_16'>
+          <strong><em>Ext4</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Theodoro Ts\'o
+                              <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Kernel
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Encontro Sul-americano de Perl - YAPC::SA::2008</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Flávio S. Glock
+                      <br/> Eden Cardoso Cardim
+                      <br/> Wallace Vinícius Oliveira Reis
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_18'>
+          <strong><em>Novas tendências na instalação de pacotes de software em Linux</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Paulo Trezentos
+                      <br/> Arlindo Oliveira
+                      <br/> Inês Lynce
+                                <br/> David Emmerich Jourdain (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>LuaRocks: o sistema de pacotes de extensão para a linguagem Lua</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Hisham Hashem Muhammad
+                      <br/> André Carregal
+                                <br/> Marcos Vinícius Henke Arnoldo (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Encontro de Software Livre no Judiciário - A modernização do Poder Judiciário pela Adoção do Software Livre</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Eduardo Henrique Pereira de Arruda
+                      <br/> João Anizio Torres Dantas
+                                <br/> Gustavo Pacheco (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_13'>
+          <strong><em>Certificação Social com o CDTC</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Adriana Fetter Dias da Costa
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Governo e Software Público
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Encontro de Integração e Articulação do GNOME Brasil</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Lucas Rocha
+                      <br/> Izabel Valverde
+                      <br/> Jonh Wendell
+                      <br/> Tiago \"T-Rex\" Menezes
+                                <br/> Luciana Freitas (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_2'>
+          <strong><em>Recuperação de Informação com Software Livre: Caso da Bases de Dados da Pesquisa Agropecuária da Embrapa (BDPA)</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Isaque Vacari
+                      <br/> Marcos Cezar Visoli
+                                <br/> Alessandro SIlva (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Casos/Soluções
+          <br/>
+          <br/>
+	  </div>
+                    <h3>11:00/12:00</h3>
+                                              	  <div class='non_tech_track_10'>
+          <strong><em>Firefox in Brazil and Beyond</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Chris Hofmann
+                      <br/> Bruno Magrani
+                      <br/> Chris Blizzard
+                      <br/> Marcio Galli
+                      <br/> Mary Colvig
+                      <br/> Taras Glek
+                              <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Desktop
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_15'>
+          <strong><em>Interação entre Linguagens de Script e C: abordagem de Lua</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Sérgio Queiroz de Medeiros
+
+                                <br/> Marcos Vinícius Henke Arnoldo (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Jogos e Multimídia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>Engenharia de Software e Software Livre: tudo a ver!</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Antonio Terceiro
+                                <br/> Alan Menk (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em>Experiências Piloto do Brasil com o Laptop XO</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Léa da Cruz Fagundes
+                                <br/> Alan Menk (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Encontro de Software Livre no Judiciário - Mesa Redonda - Migração para o BrOffice.org na Justiça do Trabalho.</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Luís Fernando Pontello
+                      <br/> Altair de Lima
+                      <br/> Luiz Fernando Ramos de Almeida
+                      <br/> Manuel Rodrigues Vieira da Silva
+                      <br/> Roberto Rodrigues da Costa
+                                <br/> Gustavo Pacheco (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_18'>
+          <strong><em>Coding Dojo - Treino para Programadores</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Hugo Corbucci
+                      <br/> Fabricio de Sousa Nascimento
+                      <br/> Mariana Vivian Bravo
+                                <br/> Marcelo Akira (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>Clonando Pinguins com System Imager</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Cesar Augusto Domingos
+                      <br/> Caio Candido
+                                <br/> João Eriberto Mota Filho (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_37'>
+          <strong><em>Redes de Computadores: Otimizações em uma biblioteca SIP ** Análise de QoS em Redes IP Mineração de Dados ** Módulo de Re-roteamento Dinâmico de Túneis LSPs para a Ferramenta de Simulação GLASS</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Saulo Queiroz (UFAM)
+                      <br/> Klenilmar Dias (UFPA)
+                      <br/> Maxwel Macedo Dias
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  WSL
+          <br/>
+          <br/>
+	  </div>
+                    <h3>12:00/13:00</h3>
+                                              	  <div class='tech_track_1'>
+          <strong><em>LTSP5\'s chalenge over the world</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Jim McQuillan
+                                <br/> Mário Meyer (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em>Formação em midia educação: produção de rádio escolar utilizando o audacity</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Suleica Fernanda Biesdorf Kretzer
+                      <br/> Rosimar José
+                                <br/> Marcos Vinícius Henke Arnoldo (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>O Ministério da Saúde Mental adverte: onde há fumaça de trabaco é fogo</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Alexandre Oliva
+                                <br/> Bruno Rafael Cardoso (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_5'>
+          <strong><em>Java ME for cool devices: The open source phoneME project</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Terrence Barr
+                                <br/> Flávio Alves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Java
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_18'>
+          <strong><em>W3C - o Brasil protagonista nas definições de padrões abertos para Web</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Vagner Diniz
+                              <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_18'>
+          <strong><em>Coding Dojo - Treino para Programadores</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Hugo Corbucci
+                      <br/> Fabricio de Sousa Nascimento
+                      <br/> Mariana Vivian Bravo
+                                <br/> Marcelo Akira (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_2'>
+          <strong><em>Integração de Microsiga e LTSP nas lojas da Editora Paulus</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Rogerio Acquadro
+                      <br/> Alexandro Angelo Romeira
+                              <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Casos/Soluções
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_37'>
+          <strong><em>Computação Embarcada: Esbox: Aplicações para Linux Embarcado ** Gerenciamento de redes para sistemas embarcados</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Raul Fernandes Herbster (UFCG)
+                      <br/> Jorge Staub (UNISC)
+                                <br/> Marcos Henrique Esteves Barbosa (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  WSL
+          <br/>
+          <br/>
+	  </div>
+                    <h3>13:00/14:00</h3>
+                                              	  <div class='non_tech_track_11'>
+          <strong><em>Adoption-Led: The Trend that\'s driving Free software in open source communities</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Simon Phipps
+                              <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_2'>
+          <strong><em>Migração da Rede do Sindicato dos Bancários de Porto Alegre: conquistas e desafios</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Leandro Godoy da Rocha
+                      <br/> Júlio César Soares Vivian
+                      <br/> Moisés Lima Matos
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Casos/Soluções
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>Real-Time Linux e Real Time Java - um novo mundo sem delays</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Flavio C Buccianti
+                                <br/> Ariane Paola (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_5'>
+          <strong><em>Gráficos em Java ME através da MECHART</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Ricardo da Silva Ogliari
+                              <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Java
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_13'>
+          <strong><em>ODF OpenDocument Format: Norma ISO 26300,  norma NBR 26300 ABNT e Lei sobre ODF</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Vitorio Y. Furusho
+                                <br/> Thiago Eustakio (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Governo e Software Público
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_1'>
+          <strong><em>Backup prático, porquê precisamos evoluir !</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Solli Moreira Honório
+                                <br/> Marcos Severiano Pereira (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_9'>
+          <strong><em>Netbeans 6: indo além do Java</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Jose Maria Silveira Neto
+                              <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ruby
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_37'>
+          <strong><em>Engenharia de Software: LUAS- Lua Unified Automatic docS generator ** OpenArchitectureWare</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Fabiane Dillenburg (UNISINOS)
+                      <br/> Kristian Pasini (Faculdade Ruy Barbosa)
+                                <br/> Marcos Vinícius Henke Arnoldo (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  WSL
+          <br/>
+          <br/>
+	  </div>
+                    <h3>14:00/15:00</h3>
+                                              	  <div class='tech_track_7'>
+          <strong><em> Large Scale PHP</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Rasmus Lerdorf
+                                <br/> Ricardo Soares Guimarães (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: PHP
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_34'>
+          <strong><em>Gambiarra: criando um jogo educativo em Python | Escrevendo aplicativos em PyQt4</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Luiz Carlos Irber Júnior
+                      <br/> Alexandre Yukio Harano
+                      <br/> Douglas Soares de Andrade
+                      <br/> Fábio Cassarotti Parronchi Navarro
+                      <br/> Gabriel Geraldo França Marcondes
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  APyB
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>OpenSolaris Testing</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Jim Walker
+                      <br/> Rafael Vanoni
+                              <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>Mozilla XULRunner - Utilizando XUL, JavaScript e SQLite para aplicações desktop</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Felipe Tassario Gomes
+                              <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>ChironFS - Sistema de Arquivos Tolerante a Falhas com Replicação</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Luis Otávio de Colla Furquim
+                                <br/> Tiago da Cruz Bezerra (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_9'>
+          <strong><em>Rails 2: Arrumando a casa!</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Sylvestre Mergulhão
+                                <br/> Leonardo Torres (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ruby
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_18'>
+          <strong><em>Implementação de Rede de Celular ad-hoc: Uma proposta de firmware livre para celulares 3G</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Claudio de Castro Monteiro
+                                <br/> Flávio Alves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_37'>
+          <strong><em>Sistemas Computacionais: Multiterminais ** Mídias removíveis em terminais thinclient sem disco ** Padrão UPnP de Áudio/Video/Imagem</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Paulo Zanoni (UFPR)
+                      <br/> Bruno Ribas
+                      <br/> Leandro Sales (UFCG)
+                                <br/> Marco André Lopes Mendes (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  WSL
+          <br/>
+          <br/>
+	  </div>
+                    <h3>15:00/16:00</h3>
+                                              	  <div class='non_tech_track_11'>
+          <strong><em>The economic impact of FLOSS</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> RIshab Ghosh
+                                <br/> Mário Meyer (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_14'>
+          <strong><em>Construindo back-ends para o LLVM</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Bruno Cardoso Lopes
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Hardware e Sistemas Embarcados
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_46'>
+          <strong><em>Arquitetura do Middleware Ginga</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Marcelo Ferreira Moreno
+                                <br/> André Gradvohl (Universidade São Francisco) (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Hora Ginga
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_7'>
+          <strong><em>Duro de Errar 5.0 - Tratamento, Controle e Configuração de erros em PHP 5.</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Marcelio Leal
+                                <br/> Ricardo Soares Guimarães (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: PHP
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_35'>
+          <strong><em>O projeto KDE-Edu: criando conhecimento</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Mauricio Piacentini
+                                <br/> Alan Menk (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Fórum KDE
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_17'>
+          <strong><em>Abelo: Sistema Web Livre de Gestão Comercial</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Leandro Nunes dos Santos
+                                <br/> Paulo Henrique de Lima Santana (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Negócios (Produtos/Servicos)
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_34'>
+          <strong><em>Por que Python?</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Marco André Lopes Mendes
+                                <br/> André Gondim Pereira (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  APyB
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>Sagui - Gestão de ativos GNU/Linux</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Joao Bosco Teixeira Junior
+                      <br/> Deivi Kuhn
+                      <br/> Marcos Mazoni
+                                <br/> Everton Cardoso (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                    <h3>16:00/17:00</h3>
+                                              	  <div class='tech_track_33'>
+          <strong><em>Apache Harmony : Building open-source Java from the Ground Up</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Geir Magnusson Jr
+                              <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Javali
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>Programando para a Web com Lua</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Fabio Mascarenhas
+                      <br/> André Carregal
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_9'>
+          <strong><em>Entrando nos trilhos: Uma Introdução a Ruby on Rails</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Fabricio de Sousa Nascimento
+                              <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ruby
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em>Inclusão Digital com Java e projeto JEDI - Uma realidade</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Daniel Wildt
+                                <br/> Marcelo Akira (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_10'>
+          <strong><em>Arch Linux: uma distribuição otimizada para i686</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Hugo Dória Nunes
+                      <br/> Douglas Soares de Andrade
+                                <br/> Rodrigo Luiz Marques Flores (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Desktop
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>User Gropus: their role and their actions</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Roberto Allende
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_5'>
+          <strong><em>Tirando o máximo do Java EE 5 com jCompany Community & Intl Version GPLv3</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Paulo Alvim
+                                <br/> Arthur Cesar Oreana (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Java
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_18'>
+          <strong><em>Open source solutions for distributed systems development</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Rodrigo Damazio
+                                <br/> Leonardo Rodrigues de Mello (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                    <h3>17:00/18:00</h3>
+                                              	  <div class='tech_track_16'>
+          <strong><em>Kernel Open Session</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Theodoro Ts\'o
+                              <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Kernel
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_6'>
+          <strong><em>O projeto BioPerl e seu uso em projetos genoma</em></strong>
+          <br/> Nível: <em></em>
+          <br/> João Batista C. G. Moreira
+                      <br/> Wellington Santos Martins
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Perl
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_18'>
+          <strong><em>CCSL: Centro de Competência em Software Livre do IME/USP</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Nelson Lago
+                      <br/> Hugo Corbucci
+                      <br/> Paulo Meirelles
+                                <br/> Alexandre de Barros Barreto (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_34'>
+          <strong><em>Dicas e Truques de Otimização de Websites Python | VTK e Python, criando aplicativos 3D</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Tatiana Al-Chueyr Pereira Martins
+                      <br/> Fabiano Weimar dos Santos
+                                <br/> Marco André Lopes Mendes (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  APyB
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em> Domínio público: existe vida depois do direito autoral?</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Carlos Affonso Pereira de Souza
+                      <br/> Bruno Magrani
+                      <br/> Marcelo Bressanin
+                                <br/> Carlos Rodrigues (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_2'>
+          <strong><em>Proposta de uma Metodologia de Migração de Software Proprietário para Software Livre com Foco no Usuário</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Ramon Simões Abílio
+                      <br/> José Monserrat Neto
+                                <br/> Thiago Eustakio (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Casos/Soluções
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_10'>
+          <strong><em>Por trás das firulas do X</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Tiago Vignatti
+                      <br/> Marcos Castilho
+                              <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Desktop
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_17'>
+          <strong><em> Intel Software?? I thought all they made was processors</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Omar Toral
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Negócios (Produtos/Servicos)
+          <br/>
+          <br/>
+	  </div>
+                    <h3>18:00/19:00</h3>
+                                              	  <div class='tech_track_35'>
+          <strong><em>Modern Graphics in Qt</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Andreas Aardal Hanssen
+                                <br/> Alexandre Albuquerque Arnt (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Fórum KDE
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em>Liberdade educacional - o uso de softwares livres na educação</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Frederico Gonçalves Guimarães
+                                <br/> Flávio Alves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_18'>
+          <strong><em>Nokia - Iniciativas e projetos open source para smartphones</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Daniel Rocha
+                                <br/> Fernanda Alves Chaves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_3'>
+          <strong><em>Replicação Assíncrona Multi-Mestre com Bucardo</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Diogo de Oliveira Biazus
+                                <br/> Arthur Cesar Oreana (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Banco de Dados
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>Segurança de Aplicações e Arquivos de Sistemas com AppArmor</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Carlos Alberto Ribeiro
+                      <br/> Vagner Farias
+                                <br/> Alexandro Silva (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_2'>
+          <strong><em>OpenLdap -  Da Migração a Integração de Aplicações. Estudo de Caso: Secretaria de Estado da Saúde de Alagoas.</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Marcus Patrick Batista Accioly
+                      <br/> Alexandre
+                      <br/> Bruno Cavalcante Barbosa
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Casos/Soluções
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>Software Livre Conectando Empresas e Comunidades</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Márcio Firmino Sena
+                                <br/> Carlos Rodrigues (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>Infra-estrutura corporativa de alta disponibilidade utilizando Software Livre</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Joniel Pasqualetto
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                    <h3>19:00/20:00</h3>
+                                              	  <div class='non_tech_track_18'>
+          <strong><em>O Fantasma do Espectro</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Sérgio Amadeu da Silveira
+                      <br/> Francisco Rudiger
+                      <br/> Gustavo Gindre
+                                <br/> Ronaldo Lemos (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_13'>
+          <strong><em>Obtendo financiamentos milionários, a fundo perdido, para desenvolver projetos em Software Livre</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Clédiston dos Santos
+                      <br/> Alexandre Gomes
+                                <br/> Flávio Alves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Governo e Software Público
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>As Ações Mais Legais da FSFLA (2008)</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Alexandre Oliva
+                                <br/> Rodrigo Luiz Marques Flores (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_16'>
+          <strong><em>Suporte ao processador Cell no kernel Linux</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> André Detsch
+                              <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Kernel
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>O ponto central da questão: LDAP (centralizando dados e informações)</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Felipe Augusto van de Wiel
+                                <br/> Mário Meyer (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em>XO / OLPC - Ele é verde, bonitinho e roda Fedora</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Rodrigo Padula de Oliveira
+                                <br/> Ricardo Soares Guimarães (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_17'>
+          <strong><em>Convivência Pacifica entre Software Livre e Proprietário - A realidade do mundo corporativo.</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Edmundo Antonio Dotta Junior
+                                <br/> Natali Silvério (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Negócios (Produtos/Servicos)
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_2'>
+          <strong><em>Software Livre no plano diretor de tecnologia da informação - Prefeitura Municial de Fortaleza</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Carlos Eurico Pittas Do Canto
+                      <br/> Cristiano Therrien
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Casos/Soluções
+          <br/>
+          <br/>
+	  </div>
+                    <h3>20:00/21:00</h3>
+                                              	  <div class='non_tech_track_18'>
+          <strong><em>O Fantasma do Espectro</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Sérgio Amadeu da Silveira
+                      <br/> Francisco Rudiger
+                      <br/> Gustavo Gindre
+                                <br/> Ronaldo Lemos (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em>Berimbau GNU/Linux - Sistema Operacional dos Telecentros da Bahia</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Vanessa Branco
+                      <br/> Ataliba Freire Silva Neto
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>Certificação: como ficam os desenvolvedores de Software Livre?</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Antonio Terceiro
+                                <br/> Natali Silvério (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_15'>
+          <strong><em>Pyweek: make a game in 7 days</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Alejandro J. Cura
+                      <br/> Héctor Sanchez
+                              <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Jogos e Multimídia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_13'>
+          <strong><em> Guia do e-ping: interoperabilidade auxiliando o software livre</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Nazaré Lopes Bretas
+                      <br/> Cláudio Muniz Machado Cavalcanti
+                      <br/> Leonardo Boselli da Motta
+                                <br/> Fernanda Alves Chaves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Governo e Software Público
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_18'>
+          <strong><em>Inteligência Coletiva com Lisp</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Vilson Vieira da Silva Junior
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>A burocracia e a tecnologia informação e comunicação no Brasil, a partir de 2003: a experiência do Software Livre.\\\"</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Claudia Maria da Costa Archer
+                              <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_2'>
+          <strong><em>Software Livre e sua aplicação nas unidades Maristas</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Gabriel Valente Prestes
+                      <br/> Carlson Janes Aquistapasse
+                      <br/> Débora Conforto
+                      <br/> Silvio Augusto Langer
+                                <br/> Sueli Elias de Mello (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Casos/Soluções
+          <br/>
+          <br/>
+	  </div>
+                  <a name="dia3"></a>
+  <h2>19 de Abril</h2>
+      <h3>09:00/10:00</h3>
+                                              	  <div class='tech_track_18'>
+          <strong><em>GeoClue: The Geoinformation Service</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Henri Bergius
+                                <br/> Fernanda Alves Chaves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Plenária Debian Brasil</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Felipe Augusto van de Wiel
+                                <br/> Bruno Rafael Cardoso (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Encontro KDE Brasil 2008</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Mauricio Piacentini
+                      <br/> Gustavo Pichorim Boiko
+                      <br/> Lúcio Flávio Matos Corrêa de Oliveira
+                                <br/> Alexandre Albuquerque Arnt (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>3o. Encontro Nacional do Ubuntu Brasil</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Fábio Nogueira
+                                <br/> André Gondim Pereira (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>[OWASP-BR] - Capitulo Brasil Top 10 de Vulnerabilidades de Aplicações WEB</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Marcos Aurelio Rodrigues
+                      <br/> Leonardo Cavallari Militelli
+                                <br/> Cleber Souza Brandão (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>I Encontro Texto Livre e UnderLinux de documentação em software livre</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Ana Cristina Fricke Matte
+                      <br/> Daniervelin Renata Marques Pereira
+                      <br/> Thiago Ayub
+                                <br/> Ricardo Soares Guimarães (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>III Encontro do Grupo de Usuários Lisp do Brasil</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Vilson Vieira da Silva Junior
+                      <br/> Mario Domenech Goulart
+                      <br/> Pedro Kroger
+                              <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>III Encontro de Usuários Joomla!</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Emerson da Rocha Luiz
+                      <br/> Fabrício Elías Costa
+                      <br/> Matheus Mendes
+                                <br/> Felipe Vargas Rigo (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                    <h3>10:00/11:00</h3>
+                                              	  <div class='tech_track_10'>
+          <strong><em>OpenOffice.org programmability  at a glance</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Juergen Schmidt
+                                <br/> David Emmerich Jourdain (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Desktop
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_20'>
+          <strong><em>Plenária Debian Brasil</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Felipe Augusto van de Wiel
+                                <br/> Bruno Rafael Cardoso (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Eventos Comunitários
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_14'>
+          <strong><em>Desenvolvimento em Linux para dispositívos móveis com Moblin</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Sulamita Garcia
+                      <br/> Claudio Uchoa
+                                <br/> Marcos Henrique Esteves Barbosa (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Hardware e Sistemas Embarcados
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>jMaki - Web 2.0 application made easy</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Arun Gupta
+                              <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>Keeping 200 firewalls on track</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Ernesto Silva
+                      <br/> Andres Tarallo
+                      <br/> Enrique Verdes
+                              <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_34'>
+          <strong><em>Uma introdução ao PyPy</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Leonardo Santagada
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  APyB
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_7'>
+          <strong><em>Prevenindo XSS: Execute apenas o SEU código</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Er Galvão Abbott
+                              <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: PHP
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_37'>
+          <strong><em>Banco de Dados: Framework colaborativo para dados espaciais na web ** Disseminação de Informações via Dados Livres</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> André Fabiano de Moraes (UFSC)
+                      <br/> Elisa Nakagawa (USP)
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  WSL
+          <br/>
+          <br/>
+	  </div>
+                    <h3>11:00/12:00</h3>
+                                              	  <div class='tech_track_4'>
+          <strong><em>The Smalltalk Seaside Web Application Framework</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Randal L. Schwartz
+                                <br/> Miguel Di Ciurcio Filho (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>Conferência Livre de Juventude</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Everton Rodrigues
+                      <br/> Danilo Moreira
+                      <br/> Sady Jacques
+                      <br/> Sérgio Amadeu da Silveira
+                                <br/> Fabricio Solagna (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_5'>
+          <strong><em>OFBiz: Free Software for Business</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Ean Schuessler
+                      <br/> Bruno Souza
+                              <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Java
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_10'>
+          <strong><em>Gotcha: multipointer com gesture click.</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Jean Cazorla Karpinski
+                      <br/> Felipe Goron Farinon
+                              <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Desktop
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em> Morfeo: building the future of SOA and the Web</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Juanjo Hierro
+                      <br/> Andrés Leonardo Martínez Ortiz
+                              <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_13'>
+          <strong><em>Rede Governo Paraná</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Cláudio Dutra
+                      <br/> Gabirel Ortiz lur
+                      <br/> Yuri Damasceno Schultz
+                                <br/> Marcos Severiano Pereira (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Governo e Software Público
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_15'>
+          <strong><em>Jogos 3D com software livre</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Robson de Souza
+                                <br/> Marcos Vinícius Henke Arnoldo (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Jogos e Multimídia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_37'>
+          <strong><em>Banco de Dados: Businness Intelligence ** Base de Metadados Musicais para o Contexto Musical Brasileiro</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Anderson Ogibowski (UCB)
+                      <br/> Razer Montaño (UFPR)
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  WSL
+          <br/>
+          <br/>
+	  </div>
+                    <h3>12:00/13:00</h3>
+                                              	  <div class='tech_track_1'>
+          <strong><em>Vim Script: the road from :set to :for</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Bram Moolenaar
+                                <br/> Miguel Di Ciurcio Filho (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_7'>
+          <strong><em>Desenvolvendo portais com o Drupal: Estudo de caso dos portais dos Democratas</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Guilherme Camargo Tossulino
+                      <br/> Helal Ferrari Cabral
+                                <br/> Vinícius Cogo (UFSM) (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: PHP
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_33'>
+          <strong><em>OpenJDK: Today and into the future with GNU/Linux</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Tom Marble
+                      <br/> Ray Gans
+                      <br/> Rich Sands
+                              <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Javali
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>Internet sob ataque: as tentativas de controle da rede e o combate a cultura hacker</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Sérgio Amadeu da Silveira
+                                <br/> Carlos Rodrigues (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em>Programa de Inclusão Digital Beija-Flor</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Antonio Marcos Feliciano
+                              <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>The EzWeb Mashup Platform: tutorial for programmers</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Marcos Reyes Ureña
+                      <br/> Miguel Angel Cañas Vaz
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_5'>
+          <strong><em>Utilizando o padrão aberto de representação de imagens SVG (Scalable Vector Graphics) com Java ME</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Antonio Eloi de Sousa Júnior
+                              <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Java
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_37'>
+          <strong><em>Bibliotecas, Ferramentas e Componentes: Componente para o Joomla!  ** RAD Plus ** Evitando Crs duplicadas</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Ricardo de Oliveira Duarte (UFOP),
+                      <br/> Sérgio Pohlmann (Universidad Catolica \"Nuestra Sra. Asunción\")
+                      <br/> Yguaratã Cavalcanti (UFPE)
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  WSL
+          <br/>
+          <br/>
+	  </div>
+                    <h3>13:00/14:00</h3>
+                                              	  <div class='tech_track_1'>
+          <strong><em>Ganeti - cluster-based virtualization management software</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Michael Hanselmann
+                                <br/> Mário Meyer (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>Jornalismo Livre: proposta de incorporação da liberdade na prática jornalística</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Rafael Evangelista
+                      <br/> Tiago Soares
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em>Campus Party: história e perspectivas no Brasil</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Marcelo D Elia Branco
+                      <br/> Roberto Andrade
+                      <br/> Sérgio Amadeu da Silveira
+                                <br/> André Gradvohl (Universidade São Francisco) (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_5'>
+          <strong><em>Relatórios para web com JasperReports e Struts2</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Manoel Pimentel Medeiros
+                                <br/> Daniel Gugelmin (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Java
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_17'>
+          <strong><em>A evolução da internet no Brasil: Indicadores de posse e uso, barreiras de acesso, segurança na rede, governo eletrônico e comércio eletrônico</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Mariana Balboni
+                      <br/> Rogério Santanna
+                              <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Negócios (Produtos/Servicos)
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>The EzWeb Mashup Platform: tutorial for programmers</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Marcos Reyes Ureña
+                      <br/> Miguel Angel Cañas Vaz
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_34'>
+          <strong><em>Python (APyB): Palestras Relâmpago</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Dorneles Treméa
+                      <br/> Luciano Ramalho
+                      <br/> Marco André Lopes Mendes
+                      <br/> Rodrigo Dias Arruda Senra
+                              <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  APyB
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_37'>
+          <strong><em>Bibliotecas, Ferramentas e Componentes: Tail Library ** API Python para Maemo ** Craniometria tridimensional InVesalius 2.0</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Márcio dos Santos (IME/USP)
+                      <br/> Felipe de Souza (Unicamp)
+                      <br/> Miguel Falcão (UFCG)
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  WSL
+          <br/>
+          <br/>
+	  </div>
+                    <h3>14:00/15:00</h3>
+                                              	  <div class='tech_track_1'>
+          <strong><em>Combining Linux High Availability Clusters with Data Replication (DRBD)</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Mark Bilansky
+                                <br/> Alberto J. Azevedo (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>Tradução de Software Livre</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> José Ernesto Mortara San Martin
+                      <br/> Fabiano Sant\'Ana
+                                <br/> Ricardo Soares Guimarães (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_35'>
+          <strong><em>GGZ: Progresso na área dos jogos livres na internet</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Josef Spillner
+                              <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Fórum KDE
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_14'>
+          <strong><em>Portando Firefox Add-ons para o MicroB Mozilla-based browser</em></strong>
+          <br/> Nível: <em></em>
+          <br/> André de Souza Pedralho
+                      <br/> Antonio Gomes
+                              <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Hardware e Sistemas Embarcados
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_8'>
+          <strong><em> Desarrollando juegos con Pygame!</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Héctor Sanchez
+                      <br/> Alejandro J. Cura
+                              <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Python
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em> Desenvolvimento ágil de software com XP e Scrum</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Guilherme Chapiewski
+                                <br/> Marcelio Leal (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em>Cartilha de Informática Básica em Software Livre</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Sonia Maria da Conceição Pinto
+                      <br/> Silvar Ferreira Ribeiro
+                                <br/> Sueli Elias de Mello (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_1'>
+          <strong><em>Administração de Sistemas no Universo On Line</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Rodrigo Albani de Campos
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                    <h3>15:00/16:00</h3>
+                                              	  <div class='non_tech_track_10'>
+          <strong><em>Overview of the Mozilla Project / Open Q&A</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Mitchell Baker
+                                <br/> Ronaldo Lemos (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Desktop
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_35'>
+          <strong><em>tupiniquizando o Desktop</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Fernando Boaglio
+                      <br/> Leonardo Fontenelle
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Fórum KDE
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_46'>
+          <strong><em>Ferramentas para desenvolvimento e testes de aplicações Ginga-NCL</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Romualdo Monteiro de Resende Costa
+                                <br/> Marcos Vinícius Henke Arnoldo (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Hora Ginga
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_2'>
+          <strong><em>Software Livre como estratégia para a autonomia tecnológica do Brasil</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Sérgio Rosa
+                                <br/> Carlos Rodrigues (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Casos/Soluções
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_34'>
+          <strong><em>ISIS-NBP: Python e Bibliotecas Digitais | WSGI: a resposta para a questão definitiva sobre Python, a Web e tudo mais?</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Rodrigo Dias Arruda Senra
+                      <br/> Humberto Diógenes
+                                <br/> Marco André Lopes Mendes (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  APyB
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_2'>
+          <strong><em>Uma solução de implementação do conceito de Rede Segura, utilizando o padrão IEEE 802.1x em ambiente híbrido</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Luis Antônio Schneiders
+                      <br/> Tiago Giovanaz da Silva
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Casos/Soluções
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_33'>
+          <strong><em>Produtividade na Web com Apache Wicket</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Claudio Miranda
+                                <br/> Arthur Cesar Oreana (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Javali
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_17'>
+          <strong><em>Aberto à vocês  o Ambiente de Tecnologias Abertas e o Banco do Brasil</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> José Luís Prola Salinas
+                                <br/> Everton Cardoso (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Negócios (Produtos/Servicos)
+          <br/>
+          <br/>
+	  </div>
+                    <h3>16:00/17:00</h3>
+                                              	  <div class='tech_track_33'>
+          <strong><em>Mobile & Embedded: The first 15 months</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Roger Brinkley
+                                <br/> Flávio Alves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Javali
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_7'>
+          <strong><em>Implementando Enterprise Patterns em PHP</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Pablo Dall'Oglio
+                                <br/> Marcelio Leal (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: PHP
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>Port Knocking? Esqueça. Abrindo portas remotamente no iptables com Single Packet Authorization.</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Jansen Carlo Sena
+                                <br/> Alberto J. Azevedo (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>O que é ODF e qual a sua importância</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Jomar Silva
+                                <br/> Everton Cardoso (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>Building .mobi sites with MyMobileWeb: tutorial for programmers</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Cristian Rodríguez de la Cruz
+                      <br/> Andrés Leonardo Martínez Ortiz
+                      <br/> Juanjo Hierro
+                      <br/> Marcos Reyes Ureña
+                      <br/> Miguel Angel Cañas Vaz
+                              <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_15'>
+          <strong><em>Implementando novos recursos gráficos para o Blender através de plugins</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Marcelo de Gomensoro Malheiros
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Jogos e Multimídia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_5'>
+          <strong><em>Grails - Agilidade, produtividade e código bonito ao alcance de todos!</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Rodrigo Urubatan
+                              <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Java
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>Rede Local Software Livre</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Paulo Roberto dos Santos Arruda
+                      <br/>  Walter Zapalowski
+                      <br/> Deivi Kuhn
+                      <br/> João Trindade
+                      <br/> Marcio Campos
+                      <br/> Marcos Mazoni
+                                <br/> João Trindade (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                    <h3>17:00/18:00</h3>
+                                              	  <div class='non_tech_track_11'>
+          <strong><em>Moving Ahead with OpenOffice.org</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Louis Suarez-Potts
+                                <br/> Alberto J. Azevedo (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_34'>
+          <strong><em>Grok: Zope 3 para homens das cavernas</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Luciano Ramalho
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  APyB
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_10'>
+          <strong><em>InVesalius - Software de Reconstrução 3D de Imagens Médicas</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Tatiana Al-Chueyr Pereira Martins
+                              <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Desktop
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_33'>
+          <strong><em>Projeto Marge, um framework livre para criação de aplicações Bluetooth em Java</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Bruno Cavaler Ghisi
+                      <br/> Lucas Bortolaso Torri
+                                <br/> Flávio Alves (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Javali
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>Building .mobi sites with MyMobileWeb: tutorial for programmers</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Cristian Rodríguez de la Cruz
+                      <br/> Andrés Leonardo Martínez Ortiz
+                      <br/> Juanjo Hierro
+                      <br/> Marcos Reyes Ureña
+                      <br/> Miguel Angel Cañas Vaz
+                              <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_2'>
+          <strong><em>Plataforma Zope/Plone na Procuradoria Geral da República: desafios e soluções</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Lucas Brasilino
+                      <br/> Mauro César Sobrinho
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Casos/Soluções
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_1'>
+          <strong><em>Controle de tráfego com HTB e Iptables</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> João Eriberto Mota Filho
+                              <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_11'>
+          <strong><em>Introducing Google Summer of Code</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Fernanda G Weiden
+                                <br/> Vinícius Cogo (UFSM) (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                    <h3>18:00/19:00</h3>
+                                              	  <div class='tech_track_1'>
+          <strong><em>Open Source Identity Integration with OpenSSO</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Pat Patterson
+                                <br/> Enrique Verdes (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em>O Twiki e o seu potencial em projetos educativos de arte digital</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Rozane Suzart Gesteira
+                      <br/> Adriano Canabarro Teixeira
+                                <br/> Morgana Lacerda (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_5'>
+          <strong><em>JavaFX: uma alternativa livre entra as RIAs</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Jose Maria Silveira Neto
+                              <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Java
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_8'>
+          <strong><em>Amora: A mobile remote assistant</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Adenilson Cavalcanti
+                              <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Python
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_34'>
+          <strong><em>Django para desenvolvimento web</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Christiano Anderson
+                                <br/> Vinícius Cogo (UFSM) (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  APyB
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_2'>
+          <strong><em>GerpavGrid: um case de sucesso na utilização de grades computacionais pela prefeitura de Porto Alegre</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> César A. F. De Rose
+                              <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Casos/Soluções
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_1'>
+          <strong><em>Aumentando a Segurança na Autenticação do Squid com OpenLdap</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Emanuel dos Reis Rodrigues
+                                <br/> João Eriberto Mota Filho (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Admin
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_18'>
+          <strong><em>IPv6 - prepare-se agora ou fique ilhado depois!</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Antonio M. Moreiras
+                      <br/> Henrique Faulhaber
+                                <br/> Lucas Augusto Carvalho (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                    <h3>19:00/20:00</h3>
+                                              	  <div class='non_tech_track_11'>
+          <strong><em>Fun and Software Livre! - Return of the Jedi!</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Jon \'Maddog\' Hall
+                                <br/> Alberto J. Azevedo (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Ecossistema do Software Livre
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>A utilização da ferramenta Plandora no gerenciamento de projetos</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Alberto Paterlini Pereto
+                              <br/> <strong>Sala:</strong> Andrew Tanenbaum (Sala 40A)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_18'>
+          <strong><em>Arena de Programação Livre: Soluções dos Finalistas !</em></strong>
+          <br/> Nível: <em>Avancado</em>
+          <br/> Paulo Meirelles
+                              <br/> <strong>Sala:</strong> Jon Maddog Hall (Sala 41A)
+          <br/> <strong>Trilha:</strong>  Tópicos Emergentes
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='non_tech_track_12'>
+          <strong><em> Soluções abertas do MEC: Linux Educacional, Ambiente E-Proinfo e Portal do Professor.</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Diogo Dauster Pontual
+                      <br/> Franciso Wiliian Saldanha
+                      <br/> Rafael Sado Andrade
+                      <br/> Regiane Soares de Carvalho
+                                <br/> Sueli Elias de Mello (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Richard Stallman (Sala 41B)
+          <br/> <strong>Trilha:</strong>  Educação e Inclusão Digital
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_17'>
+          <strong><em>Arquitetura OpenSPARC: UltraSPARC T1 e UltraSPARC T2</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Rafael David Tinoco
+                              <br/> <strong>Sala:</strong> Guido Van Rossum (Sala 41C)
+          <br/> <strong>Trilha:</strong>  Negócios (Produtos/Servicos)
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_8'>
+          <strong><em>Desenvolvimento com Plone: Melhores práticas</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Dorneles Treméa
+                      <br/> Sidnei da Silva
+                                <br/> Vinícius Cogo (UFSM) (<em>Coordenação de mesa</em>)
+                    <br/> <strong>Sala:</strong> Marcelo Tosatti (Sala 41D)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Python
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_4'>
+          <strong><em>VIM para desenvolver - configurando o editor vim para facilitar sua vida</em></strong>
+          <br/> Nível: <em></em>
+          <br/> Luiz Sanches
+                              <br/> <strong>Sala:</strong> Tim Berners Lee (Sala 41E)
+          <br/> <strong>Trilha:</strong>  Desenvolvimento: Ferramenta/Metodologia
+          <br/>
+          <br/>
+	  </div>
+                                                      	  <div class='tech_track_17'>
+          <strong><em> FWP3 - Framework PROCEMPA 3</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Alex de Araújo Silva
+                      <br/> Éberli Cabistani Riella
+                              <br/> <strong>Sala:</strong> Alan Turing (Sala 41F)
+          <br/> <strong>Trilha:</strong>  Negócios (Produtos/Servicos)
+          <br/>
+          <br/>
+	  </div>
+                    <h3>20:00/21:00</h3>
+                                              	  <div class='non_tech_track_36'>
+          <strong><em>Encerramento</em></strong>
+          <br/> Nível: <em>Iniciante</em>
+          <br/> Organização fisl9.0
+                              <br/> <strong>Sala:</strong> Linus Torvalds (Sala 40T)
+          <br/> <strong>Trilha:</strong>  Organização
+          <br/>
+          <br/>
+	  </div>
+                                                                                                                                                                                                                                                                                                                                                  </body>
+</html>
+

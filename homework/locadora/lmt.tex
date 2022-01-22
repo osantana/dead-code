@@ -1,0 +1,182 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{graphicx}
+\usepackage{moreverb}
+\usepackage[left=1.5cm,top=2cm,right=1cm,nohead,a4paper]{geometry}
+\IfFileExists{url.sty}{\usepackage{url}}
+                      {\newcommand{\url}{\texttt}}
+\parindent=0in
+\parskip=6pt
+
+\makeatletter
+\makeatother
+
+\begin{document}
+\title{Trabalho de LMT}
+\author{Osvaldo Santana Neto \texttt{\small <osantana@gmail.com>}}
+
+\maketitle
+
+\begin{abstract}
+O sistema abaixo é uma implementação escrita em linguagem C de um programa para
+gerenciamento de uma vídeo-locadora. Os requisitos de análise para a
+implementação também fazem parte deste documento.
+\end{abstract}
+
+\section{Descrição do sistema}
+
+Desenvolver um sistema de gerenciamento de locadora de filmes com as seguintes
+caracteristicas:
+
+\begin{itemize}
+\item O sistema tera dois cadastros:
+    \begin{enumerate}
+    \item Filmes
+    \item Clientes
+    \end{enumerate}
+\item O cadastro de cada filme tera os seguintes campos:
+    \begin{enumerate}
+    \item Nome do filme
+    \item Genero de filme
+    \item Ano
+    \item Disponivel - Indica se o filme esta disponivel para aluguel
+    \end{enumerate}
+\item O cadastro de clientes tera os seguintes campos:
+    \begin{enumerate}
+    \item Nome
+    \item Endereco
+    \item Telefone
+    \item Numero de filmes alugados - Indica o numero de filmes que estao em
+    \item poder do usuario
+    \end{enumerate}
+\item Tela principal contendo as seguintes operacoes:
+    \begin{enumerate}
+    \item Cadastrar Filme
+    \item Cadastrar cliente
+    \item Consultar filme
+    \item Locar filme
+    \item Devolver filme
+    \item Encerrar
+    \end{enumerate}
+\end{itemize}
+
+
+\subsection{Operações}
+
+Segue a descricao de cada uma das operacoes acima:
+
+\subsubsection{Cadastrar filme}
+
+Solicita as seguintes informacoes:
+
+\begin{enumerate}
+\item Nome do filme
+\item Genero
+\item Ano
+\end{enumerate}
+
+Um registro sera gerado para o filme novo e incluido no arquivo de cadastro de
+filmes. Um filme recem cadastrado estara automaticamente disponivel. Concluido o
+cadastro o programa retorna ao menu principal.
+
+\subsubsection{Cadastrar Cliente}
+
+Solicita as seguintes informacoes:
+
+\begin{enumerate}
+\item Nome do cliente
+\item Endereco
+\item Telefone
+\end{enumerate}
+
+Um registro sera gerado e incluido no cadastro de clientes. O cliente recem
+cadastrado devera ter o campo Numero de filmes alugados inicialmente com valor
+zero.
+
+\subsubsection{Consultar filme}
+
+O programa solicita a digitacao do nome do filme e em seguida
+localiza o filme no cadastro. Caso o filme seja encontrado, deverao
+ser exibidos as seguintes informacoes sobre o filme:
+
+\begin{itemize}
+\item Nome
+\item Genero
+\item Ano
+\item Disponibilidade
+\end{itemize}
+
+Caso o filme nao seja encontrado no cadastro, uma mensagem deve ser exibida
+informando que o filme nao consta no cadastro. O programa deve retornar para a
+tela do menu principal.
+
+\subsubsection{Locar Filme}
+
+O programa deve solicitar o nome do filme e localiza-lo no cadastro de filmes.
+Caso o filme nao seja encontrado, uma mensagem deve ser exibida informando esta
+situacao, apos isso o programa deve voltar ao menu principal.
+
+Caso o filme seja localizado, deve-se verificar se esta disponivel. Se nao
+estiver disponivel, uma mensagem deve ser exibida e o programa deve voltar ao
+menu principal.
+
+Caso o filme esteja disponivel o programa ira solicitar o nome do cliente. Em
+seguida o nome do cliente deve ser localizado no cadastro de clientes. Caso o
+cliente nao esteja cadastrado, uma mensagem deve ser exibida informando a
+situacao e retorna-se ao menu principal.
+
+Se o cliente for localizado, o programa verifica se a quantidade de filmes em
+poder do cliente e se este numero for maior do que o maximo permitido (para este
+caso devera ser 4), uma mensagem deve ser exibida informando o ocorrido e
+retorna ao menu principal.
+
+Caso o numero de filmes em poder do cliente seja menor do que o maximo, o filme
+sera alugado. Para isso e necessario marcar o filme como nao disponivel e
+incrementar o contador de filmes do cliente. Os registros do cliente e do filme
+devem ser atualizados nos arquivos respectivos.
+
+\subsubsection{Devolver filme}
+
+O programa solicita o nome do filme e localiza o registro correspondente no
+cadastro de filmes. Caso o filme nao seja encontrado, uma mensagem deve ser
+exibida e deve-se retornar ao menu principal.
+
+Caso o filme seja localizado, deve-se verificar se o filme esta marcado como
+indisponivel. Caso nao esteja, exibe-se uma mensagem informando que o filme nao
+esta locado e portanto nao pode ser devolvido, em seguida retorna ao menu
+principal.
+
+Caso o filme esteja marcado como indisponivel, o programa solicita o nome do
+usuario e localiza o registro correspondente no cadastro de usuario.
+
+Caso o nome de usuario nao seja encontrado, exibe-se uma mensagem informando
+isso e retorna-se ao menu principal. Neste ultimo caso a operacao de devolucao
+fica cancelada.
+
+Caso o nome do usuario seja localizado, deve-se decrementar o campo Numero de
+filmes alugados do registro do cliente. Em seguida o filme deve ser marcado como
+disponivel e os dois registros devem ser atualizados nos respectivos cadastros.
+
+\subsubsection{Encerrar}
+
+Encerra o programa e sai do sistema.
+
+\section{Outras observações}
+
+Assuma que :
+
+\begin{enumerate}
+\item Nao existem dois clientes com nome iguais
+\item Nao existem dois filmes com nome iguais.
+\end{enumerate}
+
+
+%\section{Listagem}
+
+\verbatiminput{locadora.c}
+
+\end{document}
+
+% vim:tw=80
